@@ -28,6 +28,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e .
+    - name: Link with Flake8
+      run: |
+        flake8 torchot tests
     - name: Test with pytest
       run: |
         pytest tests/

@@ -1,11 +1,6 @@
 import torch
 
-
 # def sinkhorn(M, *, max_iters=1000, tol=1e-6)
-
-
-
-
 
 
 def _sinkhorn_iteration(K, a, b, u):
@@ -45,7 +40,7 @@ def _distance_matrix_sq(a, b):
     dists = -2. * a @ b.T
     assert dists.shape == (a.shape[0], b.shape[0])
     dists = dists + torch.einsum('ij,ij->i', a, a)[:, None]
-    dists = dists + torch.einsum('ij,ij->i', b, b)[None,:]
+    dists = dists + torch.einsum('ij,ij->i', b, b)[None, :]
     return dists
 
 
@@ -117,5 +112,3 @@ def jakub_loss(ax, ay, bx, by, k, s):
     a = torch.stack((ax, ay), axis=-1)
     b = torch.stack((bx, by), axis=-1)
     return w2_euclidean(a, b)
-
-
