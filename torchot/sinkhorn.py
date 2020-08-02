@@ -1,6 +1,13 @@
 import torch
 
 
+# def sinkhorn(M, *, max_iters=1000, tol=1e-6)
+
+
+
+
+
+
 def _sinkhorn_iteration(K, a, b, u):
     v = b / (K.T @ u)
     u = a / (K @ v)
